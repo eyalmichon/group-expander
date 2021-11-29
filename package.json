@@ -1,12 +1,12 @@
 {
   "name": "groupexpander",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "WhatsApp group expanding to bypass WhatsApp's limit.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "gitpush": "git push origin master --tags",
-    "add-commit": "git add release.png package.json package-lock.json CHANGELOG.md && git commit -m \"Release %npm_config_addver%\"",
+    "add-commit": "git add images/release.png package.json package-lock.json CHANGELOG.md && git commit -m \"Release %npm_config_addver%\"",
     "release-image": "node release-image.js",
     "release": "npm version --no-git-tag-version %npm_config_newver% && auto-changelog --template changelog-template.hbs -p -u --commit-limit false && npm run release-image && npm run add-commit --addver=%npm_config_newver% && git tag -a %npm_config_newver% -m \"%npm_config_newver%\""
   },
