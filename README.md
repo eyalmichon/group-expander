@@ -29,7 +29,7 @@ Command pattern used for easy management of adding more commands.
   - Add and remove group for every forwarder. (more information below) 
 
 - ### Owner 👑:
-  - Kick 🦶 all participants from group.
+  - Kick 🦶 all participants from group. (must add the following text after the command: `I understand that this command will kick everyone`)
   - Get a list of names from a specific group.
   - Get all group IDs of the groups sent to owner.
   - Spam-tag someone to get their attention.
@@ -38,6 +38,13 @@ Command pattern used for easy management of adding more commands.
   - Tag everyone in the group.
   - Kick 🦶 a participant from group.
   
+## To Do
+Feature | Done 
+--- | --- |   
+Forward all types of messages | ✔ 
+Auto delete older messages | ✔ 
+Delete forwarded message if the real message got deleted | ❌ 
+MongoDB | ❌ 
 
 ## Dependencies
 - [node.js](https://nodejs.org/en/download/) >= v14.16.0
