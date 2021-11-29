@@ -1,0 +1,27 @@
+{
+  "name": "groupexpander",
+  "version": "1.0.0",
+  "description": "WhatsApp group expanding to bypass WhatsApp's limit.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "gitpush": "git push origin master --tags",
+    "add-commit": "git add release.png package.json package-lock.json CHANGELOG.md && git commit -m \"Release %npm_config_addver%\"",
+    "release-image": "node release-image.js",
+    "release": "npm version --no-git-tag-version %npm_config_newver% && auto-changelog --template changelog-template.hbs -p -u --commit-limit false && npm run release-image && npm run add-commit --addver=%npm_config_newver% && git tag -a %npm_config_newver% -m \"%npm_config_newver%\""
+  },
+  "keywords": [
+    "whatsapp"
+  ],
+  "engines": {
+    "node": "14.16.0",
+    "npm": "7.15.1"
+  },
+  "author": "Eyal Michon",
+  "license": "ISC",
+  "dependencies": {
+    "@open-wa/wa-automate": "^4.24.2",
+    "changelog-parser": "^2.8.0",
+    "command-line-args": "^5.2.0"
+  }
+}
