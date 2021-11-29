@@ -160,8 +160,10 @@ class Owner {
 
     kickAll = {
         func: (object, client) => {
-            const { groupMembers, from, botMaster, botNumber } = object;
-            if (groupMembers) {
+            const { groupMembers, from, botMaster, botNumber, args } = object;
+            const options = parse(args);
+            // must provide in joinedText `I understand that this command will kick everyone`
+            if (options.joinedText === `I understand that this command will kick everyone` && groupMembers) {
 
                 groupMembers.filter(member => member !== botMaster && member !== botNumber).forEach(member => {
                     client.removeParticipant(from, member);
