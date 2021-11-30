@@ -137,6 +137,7 @@ class Owner {
     setPrefixForwarder = {
         func: (object) => {
             const { myForwarder, from, args } = object;
+            // get options.
             const options = parse(args);
 
             // if args[0] is empty, get group ID from 'from'
