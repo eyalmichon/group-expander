@@ -16,7 +16,7 @@
    <img src="./images/release.png"/>
    </div>
 
-Always wanted to have more than 256 participants in your group? (well 257 if you use the invite "hack"), Well this bot is just for you!
+Always wanted to have more than 256 participants in your group? (well 257 if you use the invite "hack") Well this bot is just for you!
 
 This little bot can forward all of your messages from one group to another and add the participants names to the message so you can message members on the other group as if they were in the same group.
 
