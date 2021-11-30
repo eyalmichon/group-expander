@@ -129,7 +129,7 @@ class Forwarder {
         const groupMsgs = this.getGroupMessages(forwarder);
         for (const id in groupMsgs) {
             if (i === 0) break;
-            delete groupMsgs[forwarder][id]
+            delete groupMsgs[id]
             i--;
         }
         return n;
