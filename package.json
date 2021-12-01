@@ -1,6 +1,6 @@
 {
   "name": "groupexpander",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "WhatsApp group expanding to bypass WhatsApp's limit.",
   "main": "index.js",
   "scripts": {
