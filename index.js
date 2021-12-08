@@ -1,9 +1,14 @@
 const { version } = require('./package.json')
 const { create, Client } = require('@open-wa/wa-automate');
 const { msgHandler, forwardHandler } = require('./handler');
+const mutexify = require('mutexify/promise')
 
 
-// Get all unread messages and go over them.
+/**
+ * Get all unread messages and go over them.
+ * 
+ * @param {Client} client 
+ */
 async function handleUnread(client) {
     const unreadMessages = await client.getAllUnreadMessages();
     const promises = [];
@@ -22,6 +27,8 @@ async function handleUnread(client) {
 const start = async (client = new Client()) => {
     console.log(`Group Expander [Version ${version}]`)
 
+    const lock = mutexify()
+
     // refresh the client every hour.
     setInterval(() => {
         client.refresh();
@@ -29,20 +36,22 @@ const start = async (client = new Client()) => {
 
     try {
 
-        // Force it to keep the current session
-        client.onStateChanged(state => {
+        client.onStateChanged(async (state) => {
             console.log('[Client State]', state)
-            if (state === 'CONNECTED') handleUnread(client);
+            const release = await lock()
+            if (state === 'CONNECTED') await handleUnread(client);
+            release();
             if (state === 'CONFLICT' || state === 'DISCONNECTED') client.forceRefocus();
         })
 
         await handleUnread(client);
 
         client.onMessage(message => {
-
+            // Message handler.
             msgHandler(client, message);
+            // Forwarding handler.
+            forwardHandler(client, message);
 
-            forwardHandler(client, message)
         }).catch(err => {
             console.error(err);
         })
