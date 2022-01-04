@@ -31,9 +31,8 @@ class Forwarder {
     getPrefixMsg(lang) { return prefixMsg[lang] }
 
     // check if we got a correct number, this is the best we can do I guess...
-    // Might want to delete or replace prefix.
     isCorrectNumber(num) {
-        return (num.endsWith('@c.us') || num.endsWith('@g.us')) && (num.length === 17 || num.length === 28);
+        return (num.endsWith('@c.us') || num.endsWith('@g.us')) && (16 < num.length || num.length < 29);
 
     }
 
