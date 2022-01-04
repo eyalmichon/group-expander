@@ -94,3 +94,7 @@ dist
 **.data.json
 **.node-persist**
 # end managed
+
+# managed
+**_IGNORE_**
+# end managed

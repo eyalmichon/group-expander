@@ -20,7 +20,7 @@
   "author": "Eyal Michon",
   "license": "ISC",
   "dependencies": {
-    "@open-wa/wa-automate": "^4.24.2",
+    "@open-wa/wa-automate": "^4.28.5",
     "changelog-parser": "^2.8.0",
     "command-line-args": "^5.2.0",
     "mutexify": "^1.4.0"
